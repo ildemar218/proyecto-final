@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Put,Body,Param, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Put,Body,Param, NotFoundException, HttpCode } from '@nestjs/common';
 import { ProductosService } from './productos.service';
 import { createProductoDto } from 'src/dto/create-producto.dto';
 
@@ -21,14 +21,24 @@ export class ProductosController {
         console.log(body);
         return this.productosService.create(body);
     }
-
+    
     @Put(':id')
-    update(){
-        return 'Modificando una Actividad';
+    async update(@Body() body:createProductoDto, @Param('id') id: string){
+        try {
+            const ser = this.productosService.update(id,body);
+            if(!ser){
+                throw new NotFoundException('No se encontro el producto');
+            }
+            return ser;
+        } catch (error) {
+            throw error;
+        }
+        return 'Actualizando una Actividad';
     }
 
     
     @Delete(':id')//http://localhost:3000/productos/1
+    @HttpCode(204)
     async delete( @Param('id') id: string){
        try {
         const ser = this.productosService.delete(id);
@@ -39,6 +49,7 @@ export class ProductosController {
        } catch (error) {
         throw error;
        }
+       return 'Eliminando una Actividad';
     }
 
 }
