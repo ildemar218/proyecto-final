@@ -18,5 +18,11 @@ export class producto {
 
     @Prop({ default: false})
     status: boolean;
+    
+    @Prop({ required: true }) // Stock es obligatorio
+    stock: number;
+
+    @Prop({ required: true }) // Price es obligatorio
+    price: number;
 }
 export const productoschema = SchemaFactory.createForClass(producto)
