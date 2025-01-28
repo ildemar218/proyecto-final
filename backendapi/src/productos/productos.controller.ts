@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Put,Body,Param, NotFoundException, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Put,Body,Param, NotFoundException, HttpCode,ConflictException } from '@nestjs/common';
 import { ProductosService } from './productos.service';
 import { createProductoDto } from 'src/dto/create-producto.dto';
 
@@ -12,14 +12,30 @@ export class ProductosController {
     }
 
     @Get(':id')
-    finOne(){
-        return 'Trae una Actividad';
+    async finOne(@Param('id') id: string){
+        try {
+            const ser = await this.productosService.finOne(id);
+            if(!ser){
+                throw new NotFoundException('No se encontro el producto');
+            }
+            return ser;
+        } catch (error) {
+            throw error;  
+        }
     }
 
     @Post('/')
-    create(@Body() body:createProductoDto){
-        console.log(body);
-        return this.productosService.create(body);
+    async create(@Body() body:createProductoDto){
+        /*console.log(body);
+        return this.productosService.create(body);*/
+        try {
+            return await this.productosService.create(body);
+        } catch (error) {
+            if(error.code === 11000){
+                throw new ConflictException('Producto ya existe');
+            }
+            throw error;
+        }
     }
     
     @Put(':id')
