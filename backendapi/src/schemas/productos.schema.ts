@@ -12,7 +12,7 @@ export class producto {
     title: string;
 
     @Prop({
-        trim: true
+        trim: true 
     })
     description: string;
 
