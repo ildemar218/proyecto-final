@@ -8,13 +8,26 @@ export class ProductosController {
 
     @Get()
     finAll(){
-        return this.productosService.finAll();
+        return this.productosService.findAll();
     }
 
     @Get(':id')
     async finOne(@Param('id') id: string){
         try {
             const ser = await this.productosService.finOne(id);
+            if(!ser){
+                throw new NotFoundException('No se encontro el producto');
+            }
+            return ser;
+        } catch (error) {
+            throw error;  
+        }
+    }
+
+    @Get('categoria/:id')
+    async findByCategoria(@Param('id') id: string){
+        try {
+            const ser = await this.productosService.FindByCategoria(id);
             if(!ser){
                 throw new NotFoundException('No se encontro el producto');
             }

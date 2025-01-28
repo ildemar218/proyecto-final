@@ -1,20 +1,21 @@
 import { Controller,  Get, Post, Delete, Put,Body,Param, NotFoundException, HttpCode,ConflictException  } from "@nestjs/common";
 import { CategoriasService } from "../categorias/Categorias.service";
 import { createCategoriaDto } from "../dto/create-categoria.dto";
+import { ProductosService } from "src/productos/productos.service";
 
 @Controller('categorias')
 export class CategoriasController {
     constructor(private categoriasService: CategoriasService){}
-
+   
     @Get()
     finAll(){
-        return this.categoriasService.finAll();
+        return this.categoriasService.findAll();
     }
 
     @Get(':id')
     async finOne(@Param('id') id: string){
         try {
-            const ser = await this.categoriasService.finOne(id);
+            const ser = await this.categoriasService.findOne(id);
             if(!ser){
                 throw new NotFoundException('No se encontro el producto');
             }
@@ -24,6 +25,7 @@ export class CategoriasController {
         }
         
     }
+
 
     @Post('/')
     async create(@Body() body:createCategoriaDto){

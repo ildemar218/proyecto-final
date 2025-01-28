@@ -1,24 +1,44 @@
 import { IsString, IsBoolean, IsOptional,IsNumber} from "class-validator";
 
 export class updateProductoDto{
+    
+    @IsString()
+    @IsOptional()
+    titulo: string;
 
     @IsString()
     @IsOptional()
-    title: string;
+    descripcion?: string;
+
+   @IsString()
+    @IsOptional()
+    categoria: string; // ID de la categoría
 
     @IsString()
     @IsOptional()
-    description?: string;
+    plataforma: string;
+
+    @IsNumber()
+    @IsOptional()
+    precio: number;
 
     @IsBoolean()
     @IsOptional()
-    status?: boolean;
+    disponible?: boolean;
 
-    @IsNumber()
+    @IsString()
     @IsOptional()
-    stock?:number;
+    estado: string;
 
-    @IsNumber()
+    @IsString()
     @IsOptional()
-    price?:number;
+    comprador?: string;
+
+    @IsOptional()
+    imagenes?: string[];
+
+    @IsOptional()
+    fechaLanzamiento: Date;
+
+
 }

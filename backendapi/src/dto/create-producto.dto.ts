@@ -1,24 +1,48 @@
-import { IsString, IsBoolean, IsOptional, IsNotEmpty, IsNumber } from "class-validator";
+import { IsString, IsNotEmpty, IsNumber, IsBoolean, IsArray, IsOptional, IsDate } from "class-validator";
+import { Type } from "class-transformer";
 
 
 export class createProductoDto{
-
     @IsString()//isString() valida que el campo sea de tipo string
     @IsNotEmpty()//isNotEmpty() valida que el campo no esté vacío
-    title: string;
+    titulo: string;
 
     @IsString()
     @IsOptional()
-    description?: string;
+    descripcion?: string;
 
-    @IsBoolean()
-    @IsOptional()
-    status?: boolean;
+    @IsString()
+    @IsNotEmpty()
+    categoria: string; // ID de la categoría
 
-    @IsNumber()
-    stock?:number;
+    @IsString()
+    @IsNotEmpty()
+    plataforma: string;
 
     @IsNumber()
     @IsNotEmpty()
-    price?:number;
+    precio: number;
+
+    @IsBoolean()
+    @IsOptional()
+    disponible?: boolean;
+
+    @IsString()
+    @IsNotEmpty()
+    estado: string;
+
+
+    @IsString()
+    @IsOptional()
+    comprador?: string;
+
+    @IsArray()
+    @IsOptional()
+    @IsString({ each: true })
+    imagenes?: string[];
+
+    @IsDate()
+    @Type(() => Date)
+    @IsNotEmpty()
+    fechaLanzamiento: Date; 
 }

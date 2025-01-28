@@ -10,7 +10,8 @@ import { updateProductoDto } from 'src/dto/update-producto.dto';
 export class ProductosService {
     constructor(@InjectModel(producto.name) private productoModel: Model<producto>) {}
 
-    finAll() {
+    
+    findAll() {
         return this.productoModel.find();
     }
 
@@ -30,6 +31,13 @@ export class ProductosService {
 
     async update(id: string, producto: updateProductoDto) {
         return this.productoModel.findByIdAndUpdate(id, producto);
+    }
+
+    async FindByCategoria( categoriaId: string): Promise<producto[]> {
+        return this.productoModel
+        .find({categoria: categoriaId})
+        .populate('categoria')
+        .exec();
     }
 
 }

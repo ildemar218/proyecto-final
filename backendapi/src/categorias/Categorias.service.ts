@@ -1,24 +1,26 @@
-import { Injectable } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
-import { Model } from "mongoose";
-import {categoria} from '../schemas/categorias.schema';
-import { createCategoriaDto } from "../dto/create-categoria.dto";
-import { updateCategoriaDto } from "../dto/update-categoria.dto";
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { categoria } from '../schemas/categorias.schema';
+import { createCategoriaDto } from '../dto/create-categoria.dto';
+import { updateCategoriaDto } from '../dto/update-categoria.dto';
 
 @Injectable()
 export class CategoriasService {
-    constructor(@InjectModel(categoria.name) private categoriaModel: Model<categoria>) {}
+    constructor(
+        @InjectModel(categoria.name) private readonly categoriaModel: Model<categoria>,
+    ) {}
 
-    finAll() {
+    findAll() {
         return this.categoriaModel.find();
     }
 
-    async create(createcategoria: createCategoriaDto){
+    async create(createcategoria: createCategoriaDto) {
         const newcategoria = new this.categoriaModel(createcategoria);
         return newcategoria.save();
     }
 
-    async finOne(id: string) {
+    async findOne(id: string) {
         return this.categoriaModel.findById(id);
     }
 
@@ -27,7 +29,8 @@ export class CategoriasService {
     }
 
     async update(id: string, categoria: updateCategoriaDto) {
-        return this.categoriaModel.findByIdAndUpdate(id, categoria);
+        return this.categoriaModel.findByIdAndUpdate(id, categoria, { new: true });
     }
 
+   
 }
