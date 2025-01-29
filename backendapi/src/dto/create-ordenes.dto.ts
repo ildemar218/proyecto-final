@@ -1,5 +1,5 @@
 import {IsNotEmpty, IsArray, IsEnum, IsMongoId, IsNumber, IsOptional, IsString, IsDate} from 'class-validator';
-
+import { Type } from 'class-transformer';
 export class CreateOrdenesDto {
     @IsMongoId()
     @IsNotEmpty()
@@ -28,6 +28,7 @@ export class CreateOrdenesDto {
     carrito?:string[]; // Carrito de compras del usuario antes de pagar
 
     @IsDate()
+    @Type(() => Date)
     @IsOptional()
     fechaCompra?:Date; // Fecha de la compra
 
