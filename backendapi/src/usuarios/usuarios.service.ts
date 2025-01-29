@@ -5,6 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { Usuario } from '../schemas/usuarios.schema';
 import { CrearUsuarioDto } from '../dto/crear-usuario.dto';
 import { LoginUsuarioDto } from '../dto/login-usuario.dto';
+import { updateUsuarioDto } from '../dto/update-usuario.dto'; // Importa el DTO de actualización
 
 @Injectable()
 export class UsuariosService {
@@ -44,5 +45,28 @@ export class UsuariosService {
             throw new NotFoundException(`Usuario con ID ${id} no encontrado`);
         }
         return usuario;
+    }
+
+    // Método para actualizar el usuario
+    async actualizarUsuario(id: string, updateUsuarioDto: updateUsuarioDto): Promise<Usuario> {
+        const usuarioExistente = await this.usuarioModel.findById(id);
+        if (!usuarioExistente) {
+            throw new NotFoundException(`Usuario con ID ${id} no encontrado`);
+        }
+
+        // Si se proporciona una nueva contraseña, encriptarla
+        if (updateUsuarioDto.contraseña) {
+            updateUsuarioDto.contraseña = await bcrypt.hash(updateUsuarioDto.contraseña, 10);
+        }
+
+        // Actualizar el usuario
+        const usuarioActualizado = await this.usuarioModel.findByIdAndUpdate(id, updateUsuarioDto, { new: true });
+
+        // Verifica si el usuario fue actualizado correctamente
+        if (!usuarioActualizado) {
+            throw new NotFoundException(`Usuario con ID ${id} no encontrado`);
+        }
+
+        return usuarioActualizado;
     }
 }

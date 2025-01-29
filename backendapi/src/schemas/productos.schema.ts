@@ -7,7 +7,6 @@ import { categoria } from '../schemas/categorias.schema';
 })
 export class producto  {
     @Prop({
-        unique: true,
         required: true,
         trim: true
     })
