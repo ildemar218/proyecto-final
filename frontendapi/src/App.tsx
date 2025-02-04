@@ -1,14 +1,23 @@
 import { useState } from 'react'
-import './App.css'
+import ServiceForm from './components/ServiceForm'
+import ServiceIndex from './components/ServiceIndex'
+
+
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-     <h1>hello</h1>
-     <button onClick={() => setCount(count + 1)}>Increment</button>
-     <p>Count: {count}</p>
+    <div className=' bg-zinc-800 h-screen text-white flex items-center justify-center'>
+   <div className='bg-gray-950 p-4 w-2/5'>
+   <h1 className='text-center font-bold text-6xl my-2'> APP service </h1>
+          <ServiceForm />
+          <ServiceIndex />
+   </div>
+          
+ </div>
     </>
   )
 }
