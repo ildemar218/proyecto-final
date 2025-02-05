@@ -7,7 +7,7 @@ import { OrdenesModule } from './ordenes-compras/ordenes.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://liz:liz123@cluster0.r8neg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+    MongooseModule.forRoot('mongodb+srv://ildemar:1234@cluster0.1do3d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
       {
         dbName: 'rorato_game',
       }
