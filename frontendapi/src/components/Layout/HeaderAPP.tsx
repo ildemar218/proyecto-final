@@ -9,7 +9,7 @@ function HeaderApp() {
 
 
     return (
-            <header className="flex items-center justify-between bg-green-500 p-4 text-B">
+            <header className="flex items-center justify-between bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 text-white shadow-lg">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
                     <img src={fire} alt="MyCompany" className="h-10 w-10" />
@@ -21,7 +21,7 @@ function HeaderApp() {
                     {/* Botón para abrir/cerrar menú */}
                     <button
                         onClick={() => setmenuOpen(!menuOpen)}
-                        className="flex items-center gap-2 p-2 rounded-full hover:bg-indigo-600 focus:outline-none"
+                        className="flex items-center gap-2 p-2 rounded-full hover:bg-purple-700 focus:outline-none"
                         >
                         <UserCircleIcon className="h-8 w-8 text-white" />
                     </button>

@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { categoria } from '../schemas/categorias.schema';
+import { IsNumber } from 'class-validator';
 
 @Schema({
     timestamps: true
@@ -30,6 +31,7 @@ export class producto  {
     })
     plataforma: string;
 
+    @IsNumber()
     @Prop({
         required: true
     })
@@ -51,8 +53,10 @@ export class producto  {
     })
     comprador: string;
 
-    @Prop([String])
-    imagenes: string[];
+    @Prop({
+        trim: true
+    })
+    imagenes: string;
 
     @Prop({
         required: true

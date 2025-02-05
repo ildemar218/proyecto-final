@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsNumber, IsBoolean, IsArray, IsOptional, IsDate } from "class-validator";
+import { IsString, IsNotEmpty, IsNumber, IsBoolean,  IsOptional, IsDate } from "class-validator";
 import { Type } from "class-transformer";
 
 
@@ -21,6 +21,7 @@ export class createProductoDto{
 
     @IsNumber()
     @IsNotEmpty()
+    @Type(() => Number)
     precio: number;
 
     @IsBoolean()
@@ -36,7 +37,7 @@ export class createProductoDto{
     @IsOptional()
     comprador?: string;
 
-    @IsArray()
+    
     @IsOptional()
     @IsString({ each: true })
     imagenes?: string[];

@@ -2,7 +2,7 @@
 function ProductosIndex() {
   return (
     <div>
-      ProductosIndex
+      
     </div>
   )
 }
