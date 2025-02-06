@@ -29,7 +29,7 @@ function ProductForm() {
         console.log(data);
     }
   return (
-    <div>
+    <div >
         <form onSubmit={submitForm} action="">
             <input type="text" name="titulo" 
                className="border-2 border-grey-700 p-2 
@@ -100,7 +100,7 @@ function ProductForm() {
                onChange={Change}
             />
 
-            <button className="bg-indigo-500 px-3 block py-2 w-full">Guardar</button>
+            <button className="mt-4 bg-indigo-500 text-white px-3 py-2 rounded w-full text-sm">Guardar</button>
 
         </form>
     </div>

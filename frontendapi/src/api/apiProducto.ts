@@ -1,19 +1,8 @@
+import {Producto } from '../interface/producto.interface'
 const api = 'http://localhost:3000';
 
-interface Producto {
-    id: number;
-    titulo: string;
-    descripcion: string;
-    categoria: string;
-    plataforma: string;
-    precio: number;
-    disponible: boolean;
-    estado: string;
-    comprador: string;
-    imagenes: string;
-    fechaLanzamiento: string;
-}
 
+// crear un producto
 export const createProducto = (producto: Producto) =>
     fetch(`${api}/productos`, {
         method: 'POST',
@@ -22,6 +11,31 @@ export const createProducto = (producto: Producto) =>
         },
         body: JSON.stringify(producto)
     });
+
+    // obtener todos los productos
+    export const getProductos = () =>
+        fetch(`${api}/productos`)
+
+    // obtener un producto por id
+    export const getProducto = (id: number) =>
+        fetch(`${api}/productos/${id}`)
+
+    // actualizar un producto
+    export const updateProducto = (producto: Producto) =>
+        fetch(`${api}/productos/${producto.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(producto)
+        });
+
+    // eliminar un producto
+    export const deleteProducto = (id: number) =>
+        fetch(`${api}/productos/${id}`, {
+            method: 'DELETE'
+        });
+
 
 
 

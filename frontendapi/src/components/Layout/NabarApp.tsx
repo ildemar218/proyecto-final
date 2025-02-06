@@ -1,12 +1,15 @@
 import { useState } from "react";
 
+
 const NavbarApp = () => {
   const [menuItems] = useState([
     { name: "Inicio", link: "/" },
-    { name: "Servicios", link: "/servicios" },
+    { name: "Productos", link: "/servicios" },
     { name: "Proyectos", link: "/proyectos" },
     { name: "Contacto", link: "/contacto" },
   ]);
+
+  
 
   return (
     <nav className="bg-black text-white py-4">
