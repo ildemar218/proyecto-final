@@ -10,7 +10,7 @@ function ProductosIndex() {
     const fetchProductos = async () => {
       try {
         const response = await getProductos();
-        const data = await response.json();
+        const data =  await response.json();
         setProductos(data);
       } catch (err) {
         console.error("Error en la petición:", err);
