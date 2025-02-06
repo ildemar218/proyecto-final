@@ -9,6 +9,7 @@ function HeaderApp() {
     const [menuOpen, setmenuOpen] = useState(false);
     const [FormOpen, setformOpen] = useState(false);
     const [FormOpenCategoria, setformOpenCategoria] = useState(false);
+    const [FormOpenUsuario, setformOpenUsuario] = useState(false);
 
     return (
             <header className="flex items-center justify-between bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 text-white shadow-lg">
@@ -84,8 +85,13 @@ function HeaderApp() {
                                 Cerrar sesión
                             </button>
                         </div>
+                       
+                    
                         
                     )}
+
+                  
+
                 </div>
 
 

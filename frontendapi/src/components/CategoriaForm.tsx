@@ -3,7 +3,7 @@ import { createCategoria } from '../api/apiCategoria'
 
 function CategoriaForm() {
     const [categoria, setCategoria] = useState({
-        id: 0,
+        id: '',
         nombre: '',
         descripcion: ''
     })
