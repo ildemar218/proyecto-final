@@ -17,7 +17,7 @@ function App() {
         <div className='bg-gray-950 p-4 w-2/5 rounded-lg'>
           <h1 className='text-center font-bold text-6xl my-2 '>  Productos</h1>
           
-          <ProductForm/>
+          
           <ProductosIndex/>
           
         </div>
