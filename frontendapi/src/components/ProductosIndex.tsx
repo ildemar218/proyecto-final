@@ -23,7 +23,6 @@ function ProductosIndex() {
   const handleEdit = (id: string) => {
     console.log(`Editar producto con ID: ${id}`);
     // Aquí puedes redirigir a la página de edición
-    console.log("Redirigir a la página de edición");
   };
 
   const handleDelete = async (id: string) => {
@@ -72,3 +71,4 @@ function ProductosIndex() {
 }
 
 export default ProductosIndex;
+

@@ -3,7 +3,7 @@ import ProductForm from "./components/ProductForm"
 import HeaderApp from "./components/Layout/HeaderAPP"
 import NavbarApp from "./components/Layout/NabarApp"
 import FooterApp from "./components/Layout/FooterApp"
-import CategoriaForm from "./components/CategoriaForm";
+
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
         <div className='bg-gray-950 p-4 w-2/5 rounded-lg'>
           <h1 className='text-center font-bold text-6xl my-2 '>  Productos</h1>
           
-    
+          <ProductForm/>
           <ProductosIndex/>
           
         </div>
