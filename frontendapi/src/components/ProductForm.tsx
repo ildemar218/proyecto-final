@@ -29,7 +29,7 @@ function ProductForm() {
         console.log(data);
     }
   return (
-    <div>
+    <div >
         <form onSubmit={submitForm} action="">
             <input type="text" name="titulo" 
                className="border-2 border-grey-700 p-2 
