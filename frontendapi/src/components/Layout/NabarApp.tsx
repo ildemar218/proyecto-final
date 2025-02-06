@@ -20,7 +20,7 @@ const NavbarApp = () => {
               <a
                 href={item.link}
                 className="relative px-4 py-2 text-lg font-medium transition duration-300 ease-in-out
-                           hover:border-2 border-green-500 hover:text-white rounded-xl hover:scale-105"
+                          hover:border-2 border-green-500 hover:text-white rounded-xl hover:scale-105"
               >
                 {item.name}
               </a>

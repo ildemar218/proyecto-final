@@ -36,7 +36,7 @@ function CategoriaForm() {
                 placeholder="Descripción de la Categoría" onChange={handleChange}>
             </textarea>
 
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded-lg w-full">
+            <button type="submit" className="mt-4 bg-indigo-500 text-white px-3 py-2 rounded w-full text-sm">
                 Crear Categoría
             </button>
         </form>

@@ -100,10 +100,10 @@ function ProductForm() {
             onChange={Change}
          />
 
-         <button className="bg-indigo-500 px-3 block py-2 w-full">Guardar</button>
-      </form>
-      {Product.id && <p className="mt-4 text-green-500">Producto guardado exitosamente!</p>}
-   </div>
+            <button className="bg-indigo-500 px-3 block py-2 w-full">Guardar</button>
+
+        </form>
+    </div>
   )
 }
 export default ProductForm
