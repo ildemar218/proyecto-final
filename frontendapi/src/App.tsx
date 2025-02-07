@@ -1,30 +1,32 @@
-import ProductosIndex from "./components/ProductosIndex"
-import ProductForm from "./components/ProductForm"
-import HeaderApp from "./components/Layout/HeaderAPP"
-import NavbarApp from "./components/Layout/NabarApp"
-import FooterApp from "./components/Layout/FooterApp"
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProductosIndex from "./components/ProductosIndex";
+import HeaderApp from "./components/Layout/HeaderAPP";
+import NavbarApp from "./components/Layout/NabarApp";
+import FooterApp from "./components/Layout/FooterApp";
+import CategoriaIndex from "./components/CategoriaIndex";
+import UsuarioForm from './components/UsuarioForm';
+import Contacto from './components/pages/contacto';
+import Inicio from './components/pages/inicio';
 
 function App() {
-
   return (
-    <>
-    <HeaderApp/>
-    <NavbarApp/>
+    <Router>
+      <HeaderApp />
+      <NavbarApp />
 
-      <div className='bg-zinc-800 h-screen top-10 text-white 
-                      flex  items-center justify-center'>
-        <div className='bg-gray-950 p-4 w-2/5 rounded-lg'>
-          <h1 className='text-center font-bold text-6xl my-2 '>  Productos</h1>
-          
-          
-          <ProductosIndex/>
-          
-        </div>
-        
-      </div>
-      <FooterApp/>
-    </>
-  )
+          <Routes>
+            <Route path="/inicio" element={<Inicio />} />
+            <Route path="/productos" element={<ProductosIndex />} />
+            <Route path="/categorias" element={<CategoriaIndex />} />
+            <Route path="/usuarios" element={<UsuarioForm />} />
+            <Route path="/Contacto" element={<Contacto />} />
+          </Routes>
+
+      
+      
+      <FooterApp />
+    </Router>
+  );
 }
-export default App
+
+export default App;

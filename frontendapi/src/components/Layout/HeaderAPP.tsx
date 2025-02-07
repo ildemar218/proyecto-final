@@ -2,20 +2,23 @@ import {useState} from "react";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import ProductForm from "../ProductForm";
 import CategoriaForm from "../CategoriaForm";
-import fire  from "../../assets/fire.svg"
+import rovio  from "../../assets/rovio.svg"
+import control from "../../assets/control.png" 
+
 
 function HeaderApp() {
 
     const [menuOpen, setmenuOpen] = useState(false);
     const [FormOpen, setformOpen] = useState(false);
     const [FormOpenCategoria, setformOpenCategoria] = useState(false);
+   
 
     return (
-            <header className="flex items-center justify-between bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 text-white shadow-lg">
+            <header className="flex items-center justify-between bg-gradient-to-r from-black to-emerald-900 p-4 text-white shadow-lg">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
-                    <img src={fire} alt="MyCompany" className="h-10 w-10" />
-                    <span className="text-xl font-bold">Rorato Game</span>
+                <div className="flex  gap-3 text-center">
+                    <img src={control} alt="MyCompany" className="h-10 w-10 bg-blend-color-burn" />
+                    <span className="font-bold text-2xl text-emerald-900 ">Rorato Game</span>
                 </div>
 
                 {/* Menú del perfil del usuario */}
@@ -84,8 +87,13 @@ function HeaderApp() {
                                 Cerrar sesión
                             </button>
                         </div>
+                       
+                    
                         
                     )}
+
+                  
+
                 </div>
 
 

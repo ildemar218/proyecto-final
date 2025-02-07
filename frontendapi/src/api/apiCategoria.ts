@@ -15,8 +15,8 @@ export const createCategoria = (categoria: Categoria) =>
     export const getCategorias = () =>
         fetch(`${api}/categorias`)
 
-    // obtener una categoria por id
-    export const getCategoria = (id: number) =>
+   // obtener una categoria por id
+    export const getCategoria = (id: string) =>
         fetch(`${api}/categorias/${id}`)
 
     // actualizar una categoria
@@ -30,7 +30,7 @@ export const createCategoria = (categoria: Categoria) =>
         });
 
     // eliminar una categoria
-    export const deleteCategoria = (id: number) =>
+    export const deleteCategoria = (id: string) =>
         fetch(`${api}/categorias/${id}`, {
             method: 'DELETE'
         });
