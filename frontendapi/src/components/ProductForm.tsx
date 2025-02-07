@@ -106,7 +106,7 @@ function ProductForm() {
                     onChange={Change}
                 />
 
-                <input type="file" name="imagenes"
+                <input type="text" name="imagenes"
                     className="border-2 border-grey-700 p-2
                     rounded-lg bg-zinc-800 block w-full my-2"
                     placeholder="Imágenes del Producto"

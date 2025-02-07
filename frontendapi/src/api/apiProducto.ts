@@ -17,31 +17,35 @@ export const createProducto = async (producto: Producto) =>{
 };
 
 
+// obtener todos los productos
+export const getProductos = () =>
+    fetch(`${api}/productos`)
 
-    // obtener todos los productos
-    export const getProductos = () =>
-        fetch(`${api}/productos`)
+// obtener un producto por id
+export const getProducto = async (id: string) => {
+    const res = await fetch(`${api}/productos/${id}`);
+    return res;
+}
 
-    // obtener un producto por id
-    export const getProducto = (id: string) =>
-        fetch(`${api}/productos/${id}`)
+// actualizar un producto
+export const updateProducto = async (id: string, producto: any) => {
+    const res = await fetch(`${api}/productos/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(producto)
+    });
+    return res;
+}
 
-    // actualizar un producto
-    export const updateProducto = (producto: Producto) =>
-        fetch(`${api}/productos/${producto.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto)
-        });
-
-    // eliminar un producto
-    export const deleteProducto = (id: string) =>
-        fetch(`${api}/productos/${id}`, {
-            method: 'DELETE'
-        });
-
+// eliminar un producto
+export const deleteProducto = async (id: string) => {
+    const res = await fetch(`${api}/productos/${id}`, {
+        method: 'DELETE'
+    });
+    return res;
+}
 
 
 
