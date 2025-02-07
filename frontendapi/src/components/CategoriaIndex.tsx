@@ -51,7 +51,7 @@ function CategoriaIndex() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await updateCategoria(editCategoria);
+      await updateCategoria(editCategoria._id, editCategoria);
       setCategorias(categorias.map((categoria: any) => (categoria._id === editCategoria._id ? editCategoria : categoria)));
       setEditFormOpen(false);
       setEditCategoria(null);

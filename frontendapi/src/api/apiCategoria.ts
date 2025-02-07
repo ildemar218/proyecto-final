@@ -20,14 +20,16 @@ export const createCategoria = (categoria: Categoria) =>
         fetch(`${api}/categorias/${id}`)
 
     // actualizar una categoria
-    export const updateCategoria = (categoria: Categoria) =>
-        fetch(`${api}/categorias/${categoria.id}`, {
+    export const updateCategoria = async ( id:string, categoria: any) =>{
+        const res = await fetch(`${api}/categorias/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(categoria)
         });
+        return res;
+    }
 
     // eliminar una categoria
     export const deleteCategoria = (id: string) =>
