@@ -3,14 +3,20 @@ const api = 'http://localhost:3000';
 
 
 // crear un producto
-export const createProducto = (producto: Producto) =>
-    fetch(`${api}/productos`, {
+export const createProducto = async (producto: Producto) =>{
+   const res = await fetch(`${api}/productos`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(producto)
+       
     });
+
+    return res;
+};
+
+
 
     // obtener todos los productos
     export const getProductos = () =>
