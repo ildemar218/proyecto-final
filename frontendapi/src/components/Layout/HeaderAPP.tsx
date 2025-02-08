@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import ProductForm from "../ProductForm";
 import CategoriaForm from "../CategoriaForm";
 import control from "../../assets/control.png";
+import UsuarioForm from "../UsuarioForm";
 
 function HeaderApp() {
   const [menuOpen, setmenuOpen] = useState(false);
   const [FormOpen, setformOpen] = useState(false);
   const [FormOpenCategoria, setformOpenCategoria] = useState(false);
+  const [FormOpenUsuario, setformOpenUsuario] = useState(false);
 
   return (
     <header className="flex items-center justify-between bg-gradient-to-r from-black to-emerald-900 p-4 text-white shadow-lg">
@@ -45,8 +47,8 @@ function HeaderApp() {
             </button>
             {FormOpen && (
               <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-white/30 overflow-auto z-50">
-                <div className="bg-zinc-700 p-6 py-8 rounded shadow-lg w-full max-w-[350px] sm:max-w-[400px] h-auto mt-40 my-5">
-                  <h1 className="text-center font-bold text-2xl">Crear Producto</h1>
+                <div className="bg-gray-900 p-6 py-8 rounded shadow-lg w-full max-w-[350px] sm:max-w-[400px] h-auto mt-40 my-5">
+                  <h1 className="text-center font-extrabold text-emerald-400 text-3xl">Crear Producto</h1>
                   <ProductForm />
                   <button
                     onClick={() => setformOpen(false)}
@@ -65,8 +67,8 @@ function HeaderApp() {
             </button>
             {FormOpenCategoria && (
               <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-white/30 overflow-auto z-50">
-                <div className="bg-zinc-700 p-6 py-8 rounded shadow-lg w-full max-w-[350px] sm:max-w-[400px] h-auto">
-                  <h1 className="text-center font-bold text-2xl">Crear Categoria</h1>
+                <div className="bg-gray-900 p-6 py-8 rounded shadow-lg w-full max-w-[350px] sm:max-w-[400px] h-auto">
+                  <h1 className="text-center font-extrabold text-emerald-400 text-3xl">Crear Categoria</h1>
                   <CategoriaForm />
                   <button
                     onClick={() => setformOpenCategoria(false)}
@@ -77,12 +79,26 @@ function HeaderApp() {
                 </div>
               </div>
             )}
-            <Link
-              to="/usuarios"
+            <button
+              onClick={() => setformOpenUsuario(!FormOpenUsuario)}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-200"
             >
-              Registrar Usuario
-            </Link>
+              registar usuario
+            </button>
+            {FormOpenUsuario && (
+              <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-white/30 overflow-auto z-50">
+                <div className="bg-gray-900 p-6 py-8 rounded shadow-lg w-full max-w-[350px] sm:max-w-[400px] h-auto">
+                  <h1 className="text-center font-extrabold text-emerald-400 text-3xl">registrar usuario</h1>
+                  <UsuarioForm />
+                  <button
+                    onClick={() => setformOpenUsuario(false)}
+                    className="mt-4 bg-red-500 text-white px-3 py-2 rounded w-full text-sm"
+                  >
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            )}
             <button
               onClick={() => alert("Cerrando sesión...")}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-black"
