@@ -4,10 +4,10 @@ import HeaderApp from "./components/Layout/HeaderAPP";
 import NavbarApp from "./components/Layout/NabarApp";
 import FooterApp from "./components/Layout/FooterApp";
 import CategoriaIndex from "./components/CategoriaIndex";
-import UsuarioForm from './components/UsuarioForm';
 import Contacto from './components/pages/contacto';
 import Inicio from './components/pages/inicio';
 import QuienesSomos from './components/pages/QuienesSomos';
+import UsuarioIndex from './components/UsuarioIndex';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
             <Route path="/inicio" element={<Inicio />} />
             <Route path="/productos" element={<ProductosIndex />} />
             <Route path="/categorias" element={<CategoriaIndex />} />
-            <Route path="/usuarios" element={<UsuarioForm />} />
+            <Route path="/usuarios" element={<UsuarioIndex />} />
             <Route path="/Contacto" element={<Contacto />} />
             <Route path="/QuienesSomos" element={<QuienesSomos />} />
           </Routes>

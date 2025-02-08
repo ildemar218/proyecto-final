@@ -20,15 +20,16 @@ export const getUsuario = (id: string) =>
     fetch(`${api}/usuarios/${id}`); 
 
 // actualizar un usuario
-export const updateUsuario = (usuario: Usuario) =>
-    fetch(`${api}/usuarios/${usuario.id}`, {
+export const updateUsuario = async (id:string,usuario: Usuario) => {
+    const res = await fetch(`${api}/usuarios/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(usuario)
     });
-
+    return res;
+}
 
 // eliminar un usuario
 export const deleteUsuario = (id: string) =>

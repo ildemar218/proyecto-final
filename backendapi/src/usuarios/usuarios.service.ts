@@ -69,4 +69,12 @@ export class UsuariosService {
 
         return usuarioActualizado;
     }
+
+    async eliminarUsuario(id: string): Promise<Usuario> {
+        const usuario = await this.usuarioModel.findByIdAndDelete(id);
+        if (!usuario) {
+            throw new NotFoundException(`Usuario con ID ${id} no encontrado`);
+        }
+        return usuario;
+    }
 }
