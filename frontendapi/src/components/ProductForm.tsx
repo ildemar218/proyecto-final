@@ -18,6 +18,7 @@ function ProductForm() {
     });
 
     const [categorias, setCategorias] = useState<any[]>([]); // Estado para las categorías
+    const [successMessage, setSuccessMessage] = useState<string | null>(null); // Estado para el mensaje de éxito
 
     useEffect(() => {
         const fetchCategorias = async () => {
@@ -37,9 +38,11 @@ function ProductForm() {
     const submitForm = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(Product);
-        const res = await (createProducto(Product));
+        const res = await createProducto(Product);
         const data = await res.json();
         console.log(data);
+        setSuccessMessage("Producto guardado exitosamente!");
+        setTimeout(() => setSuccessMessage(null), 3000); // Ocultar el mensaje después de 3 segundos
     }
 
     return (
@@ -122,7 +125,7 @@ function ProductForm() {
 
                 <button className="bg-indigo-500 px-3 block py-2 w-full">Guardar</button>
             </form>
-            {Product.id && <p className="mt-4 text-green-500">Producto guardado exitosamente!</p>}
+            {successMessage && <p className="mt-4 text-green-500">{successMessage}</p>}
         </div>
     )
 }

@@ -3,7 +3,7 @@ const api = 'http://localhost:3000';
 
 // crear un usuario 
 export const createUsuario = (usuario: Usuario) =>
-    fetch(`${api}/usuarios`, {
+    fetch(`${api}/usuarios/registro`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

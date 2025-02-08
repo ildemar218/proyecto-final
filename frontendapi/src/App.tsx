@@ -7,6 +7,7 @@ import CategoriaIndex from "./components/CategoriaIndex";
 import UsuarioForm from './components/UsuarioForm';
 import Contacto from './components/pages/contacto';
 import Inicio from './components/pages/inicio';
+import QuienesSomos from './components/pages/QuienesSomos';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/categorias" element={<CategoriaIndex />} />
             <Route path="/usuarios" element={<UsuarioForm />} />
             <Route path="/Contacto" element={<Contacto />} />
+            <Route path="/QuienesSomos" element={<QuienesSomos />} />
           </Routes>
 
       

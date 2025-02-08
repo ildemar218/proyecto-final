@@ -2,7 +2,9 @@
 
 function UsuarioIndex() {
   return (
-    <div>UsuarioIndex</div>
+    <div>
+      
+    </div>
   )
 }
 

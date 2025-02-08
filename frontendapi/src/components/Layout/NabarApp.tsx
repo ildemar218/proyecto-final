@@ -8,6 +8,7 @@ const NavbarApp = () => {
     { name: "Productos", link: "/productos" },
     { name: "Categorías", link: "/categorias" },
     { name: "Contacto", link: "/contacto" },
+    { name: "Quienes somos", link: "/QuienesSomos" },
   ]);
 
   return (

@@ -62,36 +62,49 @@ function CategoriaIndex() {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Lista de Categorias</h2>
+    <div className="min-h-screen bg-gray-900 text-white py-16 px-6">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-5xl font-extrabold text-emerald-400 mb-8">
+          Lista de Categorías
+        </h2>
+        <p className="text-lg text-gray-400 mb-12">
+          📚 Explora nuestras categorías y encuentra lo que buscas.
+        </p>
 
-      {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      <table className="w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border border-gray-300 p-2">Nombre</th>
-            <th className="border border-gray-300 p-2">Descripción</th>
-            <th className="border border-gray-300 p-2">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {categorias.map((categoria: any) => (
-            <tr key={categoria._id} className="text-center">
-              <td className="border border-gray-300 p-2">{categoria.nombre}</td>
-              <td className="border border-gray-300 p-2">{categoria.descripcion}</td>
-              <td className="border border-gray-300 p-2 flex justify-center gap-4">
-                <button onClick={() => handleEdit(categoria._id)} className="text-blue-500">
+        {/* Contenedor de tarjetas */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {categorias.map((categoria) => (
+            <div
+              key={categoria._id}
+              className="bg-gray-800 p-6 rounded-2xl shadow-xl flex flex-col items-center transition transform hover:scale-105 duration-300"
+            >
+              {/* Título y descripción */}
+              <h3 className="text-2xl font-semibold text-white mb-2">{categoria.nombre}</h3>
+              <p className="text-gray-400 text-sm mb-4">{categoria.descripcion}</p>
+
+              {/* Botones de acción */}
+              <div className="flex gap-4">
+                <button
+                  onClick={() => handleEdit(categoria._id)}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg shadow-lg flex items-center gap-2 transition duration-300"
+                >
                   <PencilIcon className="h-5 w-5" />
+                  Editar
                 </button>
-                <button onClick={() => handleDelete(categoria._id)} className="text-red-500">
+                <button
+                  onClick={() => handleDelete(categoria._id)}
+                  className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg shadow-lg flex items-center gap-2 transition duration-300"
+                >
                   <TrashIcon className="h-5 w-5" />
+                  Eliminar
                 </button>
-              </td>
-            </tr>
+              </div>
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+      </div>
 
       {editFormOpen && (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-white/30 overflow-auto z-50">
